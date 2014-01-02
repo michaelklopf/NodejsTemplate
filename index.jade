@@ -1,0 +1,49 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        title=NodejsTemplate
+        // CSS content
+        link(rel='stylesheet', href='/css/basic.css')
+        link(rel='stylesheet', href='/css/bootstrap.min.css')
+        // JS content is right before closing body tag
+    body
+        // All page content is wrapped in here
+        div#wrap
+            // Header
+            div.navbar.navbar-default.navbar-fixed-top
+                div.container
+                    div.navbar-header
+                        button(class='navbar-toggle', type='button', data-toggle='collapse', data-target='.navbar-collapse')
+                            span.icon-bar
+                            span.icon-bar
+                            span.icon-bar
+                        a(class='navbar-brand', href='#') Tenant Bill
+                    div.collapse.navbar-collapse
+                        ul.nav.navbar-nav
+                            li.active
+                                a(href='#') Home
+                            li
+                                a(href='#about') About
+                            li
+                                a(href='#contact') Contact
+                                
+            // Main content
+            div.container
+                div.page-header
+                    h1 Welcome to the template.
+                p.lead This is a lead:
+                p
+                    div#inputarea.row
+                div#contentarea
+
+        // Footer
+        div#footer
+            div.container
+                p.text-muted.credit Page made by me, <a href="http://twitter.com/authorname/">@authorname</a>.
+        
+        // Bootstrap core JavaScript, placed here for faster page load
+        script(src='/js/jquery-2.0.3.min.js')
+        script(src='/js/bootstrap.min.js')
+        script(src='/js/basic.js')
