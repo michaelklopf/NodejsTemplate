@@ -1,5 +1,5 @@
-Node.js template for starting a node webproject faster.
-
+Node.js starter template for beginning a node webproject faster.
+=======
 The template makes use of the following technologies:
 
 express - web application framework for nod http://expressjs.com
@@ -15,7 +15,7 @@ bower - not really part of the template per se, as I copied my content from an o
 Bootstrap - front-end framework for easier and faster web development. Incorporates a lot of already designed web site elements, like buttons or sliders. Responsiveness is an elemental feature http://getbootstrap.com
 
 restler - Library to consume other web APIs. https://github.com/danwrong/restler
-
+=======
 This is what you need to do to get started:
 Navigate to your project/dev directory within Terminal (in case you use OS X)
 cd ~/Path/to/your/projectfolder
@@ -47,7 +47,9 @@ node web.js
 The message "Listening on port 3000" should appear in the console.
 
 Go to your browser and call the address:
+```
 localhost:3000
+```
 
 The template site should appear.
 
@@ -56,20 +58,24 @@ Now let's dig a little deeper into how this all works.
 With calling web.js you start the web application. In this file we create a web server which listens on port 3000 and waits for incoming requests.
 
 When you look at the file, you see the following parts:
-```var express = require('express');
+```javascript
+var express = require('express');
 var http = require('http');
 var sys = require('util');
 var rest = require('restler');
 var fs = require('fs');
 var jade = require('jade');
-var stylus = require('stylus');```
+var stylus = require('stylus');
+```
 
 Here all the related modules are loaded to make the functions they provide accessible.
 
+```javascript
 var app = express();
 app.use(stylus.middleware(__dirname + '/static'));
 app.use(express.static(__dirname + '/static'));
 app.use(express.bodyParser());
+```
 
 We create and configure a new application. First, the stylus middleware is called to transform every styl file into a equivalent css file.
 
@@ -77,25 +83,31 @@ With express.static we provide resources like css, javascript, images to the web
 
 bodyPaser allows to read the content of the incoming requests.
 
+```javascript
 app.get('/', function(req, res) {
     var data = jade.renderFile(__dirname + '/index.jade');
     res.contentType('text/html');
     res.send(200, data);
 });
+```
 
 This is the standard route which is called when entering localhost:3000 in the browser. We call the index.jade file which is transformed to html and then send back to the caller.
 
+```javascript
 app.post('/testpost', function(req, res) {
     console.log(req.body);
     res.send(200, JSON.stringify("Received data successfully."));
 });
+```
 
 An example post route. Normally this one is called with certain parameters which are accessable in req.body.
 
+```javascript
 var port = 3000;
 http.createServer(app).listen(port, function() {
     console.log('Listening on port ' + port);
 });
+```
 
 The final lines define the port and create the web server.
 
