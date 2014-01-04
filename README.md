@@ -75,9 +75,9 @@ app.use(stylus.middleware(__dirname + '/static'));
 app.use(express.static(__dirname + '/static'));
 app.use(express.bodyParser());
 ```
-We create and configure a new application. First, the stylus middleware is called to transform every styl file into a equivalent css file.
-With express.static we provide resources like css, javascript, images to the web application.
-bodyPaser allows to read the content of the incoming requests.
+We create and configure a new application. First, the stylus middleware is called to transform every styl file into an equivalent css file.
+With `express.static` we provide resources like css, javascript, images to the web application.
+`express.bodyPaser` allows to read the content of the incoming requests in an easy way.
 
 ```javascript
 app.get('/', function(req, res) {
@@ -86,7 +86,7 @@ app.get('/', function(req, res) {
     res.send(200, data);
 });
 ```
-This is the standard route which is called when entering localhost:3000 in the browser. We call the index.jade file which is transformed to html and then send back to the caller.
+This is the standard route which is called when entering `http://localhost:3000` in the browser. We call the index.jade file which is transformed to html and then send a response back to the caller, with the content of the html.
 
 ```javascript
 app.post('/testpost', function(req, res) {
@@ -94,7 +94,7 @@ app.post('/testpost', function(req, res) {
     res.send(200, JSON.stringify("Received data successfully."));
 });
 ```
-An example post route. Normally this one is called with certain parameters which are accessable in req.body.
+An example post route. Normally this route is called from jQuery post function with certain parameters attached which are accessible in `req.body`.
 
 ```javascript
 var port = 3000;
